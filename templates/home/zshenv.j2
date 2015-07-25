@@ -1,0 +1,6 @@
+export ADOTDIR={{ antigen_path }}
+{% for env in zsh_env_vars %}
+{% if (env.user == "all") or (env.user == item[1]) %}
+export {{ env.name }}="{{ env.value }}"
+{% endif %}
+{% endfor %}

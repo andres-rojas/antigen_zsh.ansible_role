@@ -1,0 +1,10 @@
+---
+- include: install.yml
+- include: settings.yml
+
+- name: Set default shell(s) to zsh
+  user:
+    name: "{{ item }}"
+    shell: /bin/zsh
+  become: true
+  with_items: "{{ zsh_users }}"

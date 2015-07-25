@@ -1,0 +1,39 @@
+---
+- name: Configure zsh global settings
+  template:
+    src: home/{{ item }}.j2
+    dest: "{{ antigen_path }}/{{ item }}"
+    owner: root
+    group: root
+    mode: 0755
+  become: true
+  with_items:
+    - zshrc
+    - zsh_aliases
+
+- name: Enable zsh global settings
+  file:
+    src: "{{ antigen_path }}/{{ item[0] }}"
+    dest: /home/{{ item[1] }}/.{{ item[0] }}
+    state: link
+    owner: "{{ item[1] }}"
+    group: "{{ item[1] }}"
+    mode: 0755
+  become: true
+  become_user: "{{ item[1] }}"
+  with_nested:
+    - [ 'zshrc', 'zsh_aliases' ]
+    - "{{ zsh_users }}"
+
+- name: Configure zsh per-user settings
+  template:
+    src: home/{{ item[0] }}.j2
+    dest: /home/{{ item[1] }}/.{{ item[0] }}
+    owner: "{{ item[1] }}"
+    group: "{{ item[1] }}"
+    mode: 0755
+  become: true
+  become_user: "{{ item[1] }}"
+  with_nested:
+    - [ 'zshenv', 'zshrc_local' ]
+    - "{{ zsh_users }}"

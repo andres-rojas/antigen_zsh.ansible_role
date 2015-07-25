@@ -1,0 +1,22 @@
+source "{{ antigen_path }}/antigen.zsh"
+
+{% if use_oh_my_zsh %}
+antigen use oh-my-zsh
+{% endif %}
+
+{% for plugin in zsh_plugins %}
+{% if plugin.user == "all" %}
+antigen bundle {{ plugin.name }}
+{% endif %}
+{% endfor %}
+
+{% for theme in zsh_themes %}
+{% if theme.user == "all" %}
+antigen theme {{ theme.name }}
+{% endif %}
+{% endfor %}
+
+[ -e "${HOME}/.zsh_aliases" ] && source "${HOME}/.zsh_aliases"
+[ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"
+
+antigen apply

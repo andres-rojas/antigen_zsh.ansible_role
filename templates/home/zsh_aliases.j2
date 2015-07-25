@@ -1,0 +1,5 @@
+{% for alias in zsh_aliases %}
+{% if alias.user == "all" %}
+alias {{ alias.name }}="{{ alias.value }}"
+{% endif %}
+{% endfor %}

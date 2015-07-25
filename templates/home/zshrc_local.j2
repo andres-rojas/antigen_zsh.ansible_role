@@ -1,0 +1,17 @@
+{% for plugin in zsh_plugins %}
+{% if plugin.user == item[1] %}
+antigen bundle {{ plugin.name }}
+{% endif %}
+{% endfor %}
+
+{% for theme in zsh_themes %}
+{% if theme.user == item[1] %}
+antigen theme {{ theme.name }}
+{% endif %}
+{% endfor %}
+
+{% for alias in zsh_aliases %}
+{% if alias.user == item[1] %}
+alias {{ alias.name }}="{{ alias.value }}"
+{% endif %}
+{% endfor %}
