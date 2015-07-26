@@ -1,8 +1,8 @@
 ---
-antigen_path: /usr/local/antigen  # where to install antigen
-use_oh_my_zsh: true               # use oh-my-zsh
-zsh_aliases: []                   # aliases to set
-zsh_env_vars: []                  # environment variables to set
-zsh_plugins: []                   # plugins to install
-zsh_themes: []                    # themes to install
-zsh_users: []                     # users to assign zsh as their default shell
+antigen_zsh_path:     /usr/local/antigen  # where to install antigen
+antigen_oh_my_zsh:    true                # use oh-my-zsh
+antigen_zsh_aliases:  []                  # aliases to set
+antigen_zsh_env_vars: []                  # environment variables to set
+antigen_zsh_plugins:  []                  # plugins to install
+antigen_zsh_themes:   []                  # themes to install
+antigen_zsh_users:    []                  # users to assign zsh as their default shell

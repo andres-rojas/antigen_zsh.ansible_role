@@ -7,4 +7,5 @@
     name: "{{ item }}"
     shell: /bin/zsh
   become: true
-  with_items: "{{ zsh_users }}"
+  with_items: "{{ antigen_zsh_users }}"
+

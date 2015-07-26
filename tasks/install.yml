@@ -9,7 +9,7 @@
 
 - name: Create install path for antigen
   file:
-    path: "{{ antigen_path }}"
+    path: "{{ antigen_zsh_path }}"
     state: directory
     owner: root
     group: root
@@ -19,4 +19,4 @@
 - name: Install antigen
   git:
     repo: https://github.com/zsh-users/antigen
-    dest: "{{ antigen_path }}"
+    dest: "{{ antigen_zsh_path }}"

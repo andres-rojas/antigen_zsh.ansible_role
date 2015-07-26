@@ -1,4 +1,4 @@
-{% for alias in zsh_aliases %}
+{% for alias in antigen_zsh_aliases %}
 {% if alias.user == "all" %}
 alias {{ alias.name }}="{{ alias.value }}"
 {% endif %}
