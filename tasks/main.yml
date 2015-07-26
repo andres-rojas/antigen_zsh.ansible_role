@@ -2,6 +2,12 @@
 - include: install.yml
 - include: settings.yml
 
+- name: Initialize shell environments
+  command: /bin/zsh /home/{{ item }}/.zshrc
+  become: yes
+  become_user: "{{ item }}"
+  with_items: "{{ antigen_zsh_users }}"
+
 - name: Set default shell(s) to zsh
   user:
     name: "{{ item }}"
