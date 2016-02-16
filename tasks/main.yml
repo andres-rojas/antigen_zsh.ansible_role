@@ -3,7 +3,7 @@
 - include: settings.yml
 
 - name: Initialize shell environments
-  command: /bin/zsh /home/{{ item }}/.zshrc
+  command: /bin/zsh ~{{ item }}/.zshrc
   become: yes
   become_user: "{{ item }}"
   with_items: "{{ antigen_zsh_users }}"

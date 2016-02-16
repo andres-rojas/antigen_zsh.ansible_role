@@ -14,7 +14,7 @@
 - name: Enable zsh global settings
   file:
     src: "{{ antigen_zsh_path }}/{{ item[0] }}"
-    dest: /home/{{ item[1] }}/.{{ item[0] }}
+    dest: ~{{ item[1] }}/.{{ item[0] }}
     state: link
     owner: "{{ item[1] }}"
     group: "{{ item[1] }}"
@@ -28,7 +28,7 @@
 - name: Configure zsh per-user settings
   template:
     src: home/{{ item[0] }}.j2
-    dest: /home/{{ item[1] }}/.{{ item[0] }}
+    dest: ~{{ item[1] }}/.{{ item[0] }}
     owner: "{{ item[1] }}"
     group: "{{ item[1] }}"
     mode: 0755
